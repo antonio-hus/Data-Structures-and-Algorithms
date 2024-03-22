@@ -5,6 +5,16 @@
 			"path" : "CMakeLists.txt"
 		},
 		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystem.cmake.in"
+		},
+		{
 			"isGenerated" : true,
 			"path" : "cmake-build-debug/CMakeFiles/3.27.8/CMakeSystem.cmake"
 		},
@@ -572,6 +582,16 @@
 			"path" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake"
 		},
 		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDetermineRCCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCCompiler.cmake.in"
+		},
+		{
 			"isGenerated" : true,
 			"path" : "cmake-build-debug/CMakeFiles/3.27.8/CMakeRCCompiler.cmake"
 		},
@@ -584,6 +604,11 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeTestRCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -757,8 +782,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1/cmake-build-debug",
-		"source" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1"
+		"build" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1 - Stack/cmake-build-debug",
+		"source" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1 - Stack"
 	},
 	"version" : 
 	{

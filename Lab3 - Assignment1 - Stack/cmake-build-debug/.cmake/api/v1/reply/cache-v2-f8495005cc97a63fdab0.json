@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1/cmake-build-debug"
+			"value" : "c:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1 - Stack/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -154,7 +154,7 @@
 					"value" : "CXX compiler"
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/mingw/bin/g++.exe"
 		},
 		{
@@ -298,7 +298,7 @@
 					"value" : "C compiler"
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "C:/Program Files/JetBrains/CLion 2023.3.2/bin/mingw/bin/gcc.exe"
 		},
 		{
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1 - Stack/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1"
+			"value" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1 - Stack"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1279,7 +1279,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1/cmake-build-debug"
+			"value" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1 - Stack/cmake-build-debug"
 		},
 		{
 			"name" : "Lab3___Assignment1_IS_TOP_LEVEL",
@@ -1303,7 +1303,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1"
+			"value" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab3 - Assignment1 - Stack"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

@@ -1,33 +1,57 @@
+// This module defines the Queue Class
 #pragma once
-#include <vector>
-using namespace std;
 
 //DO NOT CHANGE THIS PART
 typedef int TElem;
 #define NULL_TELEM -11111
 
-class Queue
-{
+// INCLUDES SECTION BELOW
+// Libraries
+#include <exception>
+#include <iostream>
+
+// CLASS DEFINITION BELOW
+class Queue{
 private:
-	//TODO - Representation
+    // CLASS STRUCTURE
+    // Dynamic Array Based Structure
+    int capacity, size;
+    TElem* elements;
+
+    // Indexes for Rear and Front of the Circular Array
+    int frontIndex, rearIndex;
+
+    // HELPER METHODS
+    // Resize operation, enlarges and shrinks the capacity of the array when needed
+    // If the array is full => double its capacity
+    // If the array is half empty => half its capacity
+    void resize();
+
+    // Checks if the circular array is full
+    // Returns true if the array's rear index will meet the front index in the next push operation
+    // False otherwise
+    bool isFull() const;
 
 public:
+    // Class Constructor
 	Queue();
 
-	//pushes an element to the end of the queue
+	// Pushes an element to the end of the queue
 	void push(TElem e);
 
-	//returns the element from the front of the queue
-	//throws exception if the queue is empty
+	// Returns the element from the front of the queue
+	// Throws exception if the queue is empty
 	TElem top() const;
 
-	//removes and returns the element from the front of the queue
-	//throws exception if the queue is empty
+	// Removes and returns the element from the front of the queue
+	// Throws exception if the queue is empty
 	TElem pop();
 
-	//checks if the queue is empty
+	// Checks if the queue is empty
 	bool isEmpty() const;
 
-	// destructor
+	// Destructor
 	~Queue();
 };
+
+#include "Queue.cpp"
