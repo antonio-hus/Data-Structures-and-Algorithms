@@ -111,3 +111,18 @@ Queue::~Queue() {
 }
 // BC=WC=TC: Theta(1) - Freeing memory is done in constant time
 
+// EXTRA OPERATION
+TElem Queue::getMiddle() const {
+
+    // Throws an exception for popping the empty queue
+    if(this->isEmpty())
+        throw exception();
+
+    // Getting the middleIndex
+    int middleIndex = 0;
+    if(this->frontIndex > this->rearIndex)
+        middleIndex = (this->frontIndex + this->rearIndex % this->capacity) / 2;
+    else middleIndex = (this->frontIndex + this->rearIndex) / 2;
+    return this->elements[middleIndex];
+}
+// BC=WC=TC: Theta(1) - Accessing class properties is done in constant time

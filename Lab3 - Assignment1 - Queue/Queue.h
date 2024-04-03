@@ -52,6 +52,11 @@ public:
 
 	// Destructor
 	~Queue();
+
+    // EXTRA OPERATION
+    // returns the middle element of the queue (if the queue has an even number of elements, return either of the two "middle elements")
+    // throws an exception if the queue is empty
+    TElem getMiddle() const;
 };
 
 #include "Queue.cpp"

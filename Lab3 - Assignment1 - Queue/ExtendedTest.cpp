@@ -134,10 +134,39 @@ void testQuantity() {
 	}
 }
 
+void testGetMiddle() {
+    cout << "Test EXTRA Operations" << endl;
+    Queue q;
+
+    // Throws exception for empty queue
+    assert(q.isEmpty() == true);
+    try {
+        q.getMiddle();
+        assert(false);
+    }
+    catch (exception&) {
+        assert(true);
+    }
+
+    // Assert returns the right middle element
+
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    assert(q.getMiddle() == 2);
+
+    q.pop();
+    assert(q.getMiddle() == 2 || q.getMiddle() == 3);
+
+    q.pop();
+    assert(q.getMiddle() == 3);
+}
+
 void testAllExtended() {
 	testCreate();
 	testPush();
 	testPop();
 	testMix();
 	testQuantity();
+    testGetMiddle();
 }
