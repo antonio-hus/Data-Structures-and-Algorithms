@@ -181,16 +181,24 @@ TElem Matrix::modify(int i, int j, TElem e) {
     }
 
     TElem oldvalue = NULL_TELEM;
+
+    // Finding the most suitable place for the new element, or the element itself
     int currentNodePosition = this->head;
     int newPosition = 0;
+    while(currentNodePosition != -1){
 
-    // Finding the position to insert or update the element
-    while (currentNodePosition != -1 &&
-           (this->nodes[currentNodePosition].info.line < i ||
-            (this->nodes[currentNodePosition].info.line == i && this->nodes[currentNodePosition].info.column < j))) {
+        // Checking if the element matches the line and column
+        if(this->nodes[currentNodePosition].info.line == i && this->nodes[currentNodePosition].info.column == j){
+            break;
 
+        // Element not found and can be inserted in this position
+        }else{
+            if(this->nodes[currentNodePosition].info.line > i || (this->nodes[currentNodePosition].info.line == i && this->nodes[currentNodePosition].info.line >= j))
+                break;
+        }
+
+        // Getting the next element
         currentNodePosition = this->nodes[currentNodePosition].next;
-        newPosition ++;
     }
 
     // If the element already exists, update its value or remove it if the new value is 0

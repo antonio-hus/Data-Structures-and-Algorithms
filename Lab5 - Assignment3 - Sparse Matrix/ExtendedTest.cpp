@@ -72,9 +72,8 @@ void testQuantity() {
 			if (i % 2 == 0 && j % 2 == 0)
 				assert(m.element(i, j) == i * j);
 			else
-				if (j % 3 == 0) {
+				if (j % 3 == 0)
                     assert(m.element(i, j) == i + j);
-                }
 				else assert(m.element(i, j) == NULL_TELEM);
 }
 
@@ -111,7 +110,6 @@ void testMix() {
 		for (int j = 0; j < size; j++) {
 			if (i == j) {
 				m.modify(i, j, 11);
-				cout << m.element(i, j) << endl;
 			}
 			else if (i == 100 * j) {
 				m.modify(i, j, 111);
@@ -126,7 +124,6 @@ void testMix() {
 		for (int j = 0; j < size; j++) {
 			if (i == j) {
 				TElem old = m.modify(i, j, NULL_TELEM);
-                cout << old << " | ";
 				assert(old == 11);
 			}
 			else if (i == 100 * j) {
@@ -163,7 +160,7 @@ void testMix() {
 void testAllExtended() {
 	testCreate();
 	testModify();
-	//testQuantity();
+	testQuantity();
 	testMix();
 	testExceptions();
 }
