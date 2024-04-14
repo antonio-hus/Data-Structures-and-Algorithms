@@ -3,11 +3,38 @@
 //DO NOT CHANGE THIS PART
 typedef int TElem;
 #define NULL_TELEM 0
+#include <exception>
 
 class Matrix {
-
 private:
-	//TODO - Representation
+
+    // Representing the Line - Column - Value triples
+    typedef struct {
+        int line, column;
+        TElem value;
+    }Triple;
+
+    // Representing a node of the DLLA
+    class DLLANode{
+    public:
+        Triple info;
+        int next, prev;
+    };
+
+    // DLLA Based Structure
+    DLLANode* nodes;
+    int capacity, size;
+    int head, tail, firstEmpty;
+
+    // Matrix Structure
+    int linesCount, colsCount;
+
+    // Helper Functions
+    void resize();
+    int allocate();
+    void free(int position);
+    void insertAtPosition(int position, Triple element);
+
 public:
 	//constructor
 	Matrix(int nrLines, int nrCols);
