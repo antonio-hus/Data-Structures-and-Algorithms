@@ -22,7 +22,30 @@
   <component name="ChangeListManager">
     <list default="true" id="35c46703-93bb-4bf7-bb55-ece38d18da57" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ExtendedTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ExtendedTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IteratedList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/IteratedList.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IteratedList.h" beforeDir="false" afterPath="$PROJECT_DIR$/IteratedList.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Lab4___Assignment2___IteratedList.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Lab4___Assignment2___IteratedList.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/ExtendedTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/ExtendedTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/Matrix.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/Matrix.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/Matrix.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/Matrix.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/.cmake/api/v1/reply/cache-v2-b9bd377bf291d1d919ef.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/.cmake/api/v1/reply/index-2024-04-13T15-20-50-0391.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/Lab5___Assignment3___Sparse_Matrix.dir/ExtendedTest.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/Lab5___Assignment3___Sparse_Matrix.dir/ExtendedTest.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/Lab5___Assignment3___Sparse_Matrix.dir/Matrix.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/Lab5___Assignment3___Sparse_Matrix.dir/Matrix.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/Lab5___Assignment3___Sparse_Matrix.dir/ShortTest.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/Lab5___Assignment3___Sparse_Matrix.dir/ShortTest.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/Lab5___Assignment3___Sparse_Matrix.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/Lab5___Assignment3___Sparse_Matrix.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/Lab5___Assignment3___Sparse_Matrix.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/Lab5___Assignment3___Sparse_Matrix.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab5 - Assignment3 - Sparse Matrix/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +112,7 @@
       <updated>1712144285865</updated>
       <workItem from="1712144287316" duration="11676000" />
       <workItem from="1712638646344" duration="64000" />
+      <workItem from="1713352304733" duration="2696000" />
     </task>
     <servers />
   </component>

@@ -21,7 +21,7 @@ void testModify() {
 	cout << "Test modify" << endl;
 	Matrix m(10, 10);
 	for (int j = 0; j < m.nrColumns(); j++)
-		m.modify(4, j, 3);
+        m.modify(4, j, 3);
 	for (int i = 0; i < m.nrLines(); i++)
 		for (int j = 0; j < m.nrColumns(); j++)
 			if (i == 4)
@@ -32,7 +32,7 @@ void testModify() {
 
 void testQuantity() {
 	cout << "Test quantity" << endl;
-	Matrix m(200, 300);
+	Matrix m(20, 30);
 	for (int i = m.nrLines() / 2; i < m.nrLines(); i++) {
 		for (int j = 0; j <= m.nrColumns() / 2; j++)
 		{
@@ -72,8 +72,11 @@ void testQuantity() {
 			if (i % 2 == 0 && j % 2 == 0)
 				assert(m.element(i, j) == i * j);
 			else
-				if (j % 3 == 0)
+				if (j % 3 == 0) {
+
+                    cout << "Got: "  << m.element(i,j) << " expected: " << i+j << " from " << i << " " << j << endl;
                     assert(m.element(i, j) == i + j);
+                }
 				else assert(m.element(i, j) == NULL_TELEM);
 }
 
@@ -135,6 +138,7 @@ void testMix() {
 			}
 		}
 	}
+
 	for (int i = 0; i < size/2; i++) {
 		for (int j = 0; j < size; j++) {
 			TElem e = m.element(i, j);

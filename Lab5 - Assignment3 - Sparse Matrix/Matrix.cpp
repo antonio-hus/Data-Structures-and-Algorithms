@@ -1,142 +1,49 @@
 #include "Matrix.h"
+#include <iostream>
 #include <exception>
 using namespace std;
 
 /// MATRIX CLASS IMPLEMENTATION
 // PRIVATE METHODS
-
 void Matrix::resize() {
 
-    // Special case for empty list
-    if(this->capacity == 0) {
-
-        // Updating capacity
-        this->capacity ++;
-
-        // Allocating the new list
-        auto* newElements = new DLLANode;
-        this->nodes = newElements;
-
-        // Updating the first empty element
-        this->firstEmpty = 0;
-        this->nodes[firstEmpty].prev = -1;
-        this->nodes[firstEmpty].next = -1;
-        return;
+    // Special case, list has 0 capacity
+    int newCapacity;
+    if(this->capacity == 0){
+        newCapacity = 1;
+    }else{
+        newCapacity = this->capacity * 2;
     }
 
-    // Double the size and move all elements inside the new list
-    int newCapacity = this->capacity*2;
+    // Doubling Capacity of the List
     auto* newElements = new DLLANode[newCapacity];
+
+    // Copying the old elements
     for(int i=0; i<this->size; ++i){
         newElements[i] = this->nodes[i];
     }
 
-    // Initialize all newly allocated elements as empty
-    this->firstEmpty = this->size;
-    for (int i = this->size; i < newCapacity; ++i) {
-        newElements[i].prev = i - 1;
-        newElements[i].next = i + 1;
+    // Initializing the new elements
+    for(int i=this->size; i<newCapacity; ++i){
+        newElements[i].prev = i-1;
+        newElements[i].next = i+1;
     }
+    newElements[this->size].prev = -1;
+    newElements[newCapacity-1].next = -1;
 
-    // Update the last node's next pointer to -1 to mark the end of the list
-    newElements[newCapacity - 1].next = -1;
+    // List was full, hence the first empty is the node at size
+    this->firstEmpty = this->size;
 
-    // Redirect the old list pointer and update properties
-    delete[] this->nodes;
+    // Updating the parameters of the list
+    if(this->capacity != 0)
+        delete[] this->nodes;
     this->nodes = newElements;
     this->capacity = newCapacity;
 }
 
-int Matrix::allocate() {
-
-    // Getting the first empty position
-    int newPosition = this->firstEmpty;
-    if(newPosition == -1) return -1;
-
-    // Finding and setting up the next first empty spot
-    this->firstEmpty = this->nodes[firstEmpty].next;
-    if(this->firstEmpty != -1)
-        this->nodes[firstEmpty].prev = -1;
-
-    // "Initializing" or new element's container
-    this->nodes[newPosition].prev = -1;
-    this->nodes[newPosition].next = -1;
-    return newPosition;
-}
-
-void Matrix::free(int position) {
-
-    // Removing the pointer to the previous element
-    this->nodes[position].prev = -1;
-
-    // Marking current node as the first empty for overwriting
-    this->nodes[position].next = this->firstEmpty;
-    if(this->firstEmpty != -1)
-        this->nodes[firstEmpty].prev = position;
-    this->firstEmpty = position;
-}
-
-void Matrix::insertAtPosition(int position, Matrix::Triple element) {
-
-    int newPosition = this->allocate();
-    if(newPosition == -1){
-        this->resize();
-        newPosition = this->allocate();
-    }
-
-    this->nodes[newPosition].info = element;
-    if(position == 0){
-
-        if(this->head == -1){
-
-            // The list was empty so the new element becomes the head ( and also the tail )
-            this->head = newPosition;
-            this->tail = newPosition;
-        }else{
-
-            // The list was populated already, hence we need to insert before the head
-            // Setting up the pointers accordingly
-            this->nodes[newPosition].next = this->head;
-            this->nodes[this->head].prev = newPosition;
-            this->head = newPosition;
-        }
-
-    }else{
-
-        // Traversing the list to the desired position
-        int currentNodePosition = this->head;
-        int currentPosition = 0;
-        while(currentNodePosition != -1 && currentNodePosition < position - 1){
-            currentNodePosition = this->nodes[currentPosition].next;
-            currentPosition ++;
-        }
-
-        // If the position was reached
-        if(currentNodePosition != -1){
-
-            // Setting up the pointers of the new Element
-            int nextNodePosition = this->nodes[currentNodePosition].next;
-            this->nodes[newPosition].next = nextNodePosition;
-            this->nodes[newPosition].prev = currentNodePosition;
-            this->nodes[currentNodePosition].next = newPosition;
-
-            // Element is the last in the list, set it to be the tail
-            if(nextNodePosition == -1)
-                this->tail = newPosition;
-
-            // Element is not the last so update the next nodes pointer to prev
-            else{
-                this->nodes[currentNodePosition].prev = newPosition;
-            }
-        }
-    }
-
-    this->size ++;
-}
-
 // PUBLIC METHODS
 Matrix::Matrix(int nrLines, int nrCols):
-capacity(0), size(0), head(-1), tail(-1), firstEmpty(-1), linesCount(nrLines), colsCount(nrCols){}
+firstEmpty(-1), head(-1), tail(-1), size(0), capacity(0), linesCount(nrLines), colsCount(nrCols){}
 
 
 int Matrix::nrLines() const {
@@ -151,83 +58,165 @@ int Matrix::nrColumns() const {
 
 TElem Matrix::element(int i, int j) const {
 
-    // Checking index validity
-    if((i<0 || i>linesCount) || (j<0 || j>colsCount)){
+    // Checking the validity of the index pair
+    if((i<0 || i>=this->linesCount) || (j<0 || j>=this->colsCount))
         throw exception();
+
+    // Parsing the DLLA to find the required value
+    int currentNode = head;
+    while(currentNode != -1){
+
+        // Comparing the indexes
+        if(this->nodes[currentNode].info.line == i && this->nodes[currentNode].info.column == j)
+            return this->nodes[currentNode].info.value;
+
+        // Getting the next value
+        currentNode = this->nodes[currentNode].next;
     }
 
-    // Traversing the DLL to get the element at the given position
-    int currentNodePosition = this->head;
-    while(currentNodePosition != -1){
-
-        // Checking if the element matches the line and column
-        if(this->nodes[currentNodePosition].info.line == i && this->nodes[currentNodePosition].info.column == j){
-            return this->nodes[currentNodePosition].info.value;
-        }
-
-        // Getting the next element
-        currentNodePosition = this->nodes[currentNodePosition].next;
-    }
-
-    // Element not found
-	return NULL_TELEM;
+    // Element not found, return the NULL Value
+    return NULL_TELEM;
 }
 
 TElem Matrix::modify(int i, int j, TElem e) {
 
-    // Checking index validity
-    if ((i < 0 || i > linesCount) || (j < 0 || j > colsCount)) {
+    // Checking the validity of the index pair
+    if((i<0 || i>=this->linesCount) || (j<0 || j>=this->colsCount))
         throw exception();
-    }
 
-    TElem oldvalue = NULL_TELEM;
+    // Finding the specified pair or the most suitable position to insert it
+    int currentNode = head;
+    while(currentNode != -1){
 
-    // Finding the most suitable place for the new element, or the element itself
-    int currentNodePosition = this->head;
-    int newPosition = 0;
-    while(currentNodePosition != -1){
-
-        // Checking if the element matches the line and column
-        if(this->nodes[currentNodePosition].info.line == i && this->nodes[currentNodePosition].info.column == j){
+        // Exact position matched
+        if(this->nodes[currentNode].info.line == i && this->nodes[currentNode].info.column == j)
             break;
 
-        // Element not found and can be inserted in this position
-        }else{
-            if(this->nodes[currentNodePosition].info.line > i || (this->nodes[currentNodePosition].info.line == i && this->nodes[currentNodePosition].info.line >= j))
-                break;
-        }
+        // Most suitable position if the pair not matched
+        if(this->nodes[currentNode].info.line > i || (this->nodes[currentNode].info.line == i && this->nodes[currentNode].info.column > j))
+            break;
 
-        // Getting the next element
-        currentNodePosition = this->nodes[currentNodePosition].next;
+        // Getting the next value
+        currentNode = this->nodes[currentNode].next;
     }
 
-    // If the element already exists, update its value or remove it if the new value is 0
-    if (currentNodePosition != -1 && this->nodes[currentNodePosition].info.line == i && this->nodes[currentNodePosition].info.column == j) {
+    auto oldValue = NULL_TELEM;
+    if(currentNode != -1 && (this->nodes[currentNode].info.line == i && this->nodes[currentNode].info.column == j)){
 
-        oldvalue = this->nodes[currentNodePosition].info.value;
+        // Retaining the Old Value
+        oldValue = this->nodes[currentNode].info.value;
 
-        if (e == NULL_TELEM) {
-            // Remove the existing node
-            this->free(currentNodePosition);
+        // Element found
+        // Remove Element
+        if(e==NULL_TELEM){
+
+            // Nulling pointers
+            this->nodes[currentNode].prev = -1;
+            this->nodes[currentNode].next = -1;
+
+            // The array was previously full
+            if(this->firstEmpty == -1){
+                this->firstEmpty = currentNode;
+            }
+
+            // The array already had an empty cell, link it
+            else{
+                this->nodes[currentNode].next = this->firstEmpty;
+                this->nodes[firstEmpty].prev = currentNode;
+                this->firstEmpty = currentNode;
+            }
+
+            // Decrease the size
+            this->size--;
         }
 
-        else {
-            // Update the value of the existing node
-            this->nodes[currentNodePosition].info.value = e;
+        // Modify Element
+        else{
+
+            // Updating the element in place
+            this->nodes[currentNode].info.value = e;
         }
+
+        return oldValue;
     }
 
-    // Otherwise, insert the new element if the new value is not 0
-    else if (e != 0) {
+    // Introducing a new element
+    else if (e != 0){
 
-        Triple newElement;
-        newElement.line = i;
-        newElement.column = j;
-        newElement.value = e;
+        // Resizing if the array is full ( no empty cells )
+        if(this->firstEmpty == -1) resize();
 
-        // Inserting the new Element
-        insertAtPosition(newPosition, newElement);
+        // Actual element to insert
+        Triple el;
+        el.line = i;
+        el.column = j;
+        el.value = e;
+
+        // Inserting the element and linking
+        // Special Case - Head is -1 - List is empty
+        if(this->head == -1){
+
+            // Initialize the element pointers
+            this->nodes[firstEmpty].prev = -1;
+            this->nodes[firstEmpty].next = -1;
+
+            // Adding the element
+            this->nodes[firstEmpty].info = el;
+
+            // Updating the head and tail
+            this->head = firstEmpty;
+            this->tail = firstEmpty;
+
+            // Getting the next first empty
+            this->firstEmpty = this->nodes[firstEmpty].next;
+        }
+
+        // List already has elements
+        else{
+
+            // Initializing our position
+            this->nodes[firstEmpty].prev = -1;
+            this->nodes[firstEmpty].next = -1;
+
+            // Adding the element
+            this->nodes[firstEmpty].info = el;
+
+            // Configuring list pointers by case
+            // Adding to the tail
+            if (currentNode == -1) {
+                this->nodes[firstEmpty].prev = this->tail;
+                this->nodes[this->tail].next = firstEmpty;
+                this->tail = firstEmpty;
+            }
+
+            // Adding to the head
+            else if (currentNode == this->head) {
+                this->nodes[firstEmpty].next = this->head;
+                this->nodes[this->head].prev = firstEmpty;
+                this->head = firstEmpty;
+
+            }
+
+            // Adding between nodes
+            else {
+                this->nodes[firstEmpty].next = currentNode;
+                this->nodes[firstEmpty].prev = this->nodes[currentNode].prev;
+                this->nodes[this->nodes[currentNode].prev].next = firstEmpty;
+                this->nodes[currentNode].prev = firstEmpty;
+            }
+
+            // Getting the next free element
+            this->firstEmpty = this->nodes[firstEmpty].next;
+
+        }
+
+        // Increasing the size
+        this->size ++;
+
+        // Nothing was previously on the position, return the null element
+        return NULL_TELEM;
     }
 
-    return oldvalue;
+    // In case both old and new element was 0
+    return NULL_TELEM;
 }

@@ -212,3 +212,30 @@ ListIterator IteratedList::search(TElem e) const {
 // BC = Theta(1) - The element is found in the head
 // WC = Theta(listSize) - The element is found in the end of the list or not found at all
 // TC = O(listSize)
+
+// EXTRA OPERATION
+void IteratedList::removeBetween(ListIterator &start, ListIterator &end) {
+
+    // Checking both positions
+    if (!start.valid() || !end.valid())
+        throw std::exception();
+
+    // Removing the nodes between start and end
+    ListIterator iterator = start;
+    iterator.next();
+    while (iterator != end) {
+        ListIterator temp = iterator;
+        delete temp.currentNodePtr;
+        iterator.next();
+    }
+
+    // If we removed from the head, update it
+    if (start.currentNodePtr == this->head)
+        this->head = end.currentNodePtr;
+    else {
+
+        // Update the next pointer of the node before start to end
+        start.currentNodePtr->next = end.currentNodePtr;
+    }
+}
+// BC, WC, TC = Theta(dist(start,end)) - we have to delete the nodes between the two

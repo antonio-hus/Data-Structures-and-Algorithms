@@ -8,32 +8,28 @@ typedef int TElem;
 class Matrix {
 private:
 
-    // Representing the Line - Column - Value triples
+    // Triple Structure for holding our Sparse-Matrix Elements
     typedef struct {
-        int line, column;
         TElem value;
+        int line, column;
     }Triple;
 
-    // Representing a node of the DLLA
-    class DLLANode{
-    public:
+    // DLLA Node Structure
+    typedef struct {
         Triple info;
         int next, prev;
-    };
+    }DLLANode;
 
-    // DLLA Based Structure
+    // DLLA List Structure
+    int firstEmpty, head, tail;
+    int size, capacity;
     DLLANode* nodes;
-    int capacity, size;
-    int head, tail, firstEmpty;
 
     // Matrix Structure
     int linesCount, colsCount;
 
-    // Helper Functions
+    // DLLA List Operations
     void resize();
-    int allocate();
-    void free(int position);
-    void insertAtPosition(int position, Triple element);
 
 public:
 	//constructor

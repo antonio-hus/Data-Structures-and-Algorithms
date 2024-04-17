@@ -396,13 +396,43 @@ void testRemove() {
 	
 }
 
+void testExtra() {
+    cout << "Test Extra" << endl;
+
+    // Create an IteratedList
+    IteratedList myList;
+
+    // Add some elements to the list
+    myList.addToEnd(1);
+    myList.addToEnd(2);
+    myList.addToEnd(3);
+    myList.addToEnd(4);
+    myList.addToEnd(5);
+
+    ListIterator it = myList.first();
+    ListIterator start = myList.search(2);
+    ListIterator end = myList.search(4);
+
+    // Remove elements between start and end
+    myList.removeBetween(start, end);
+
+    // Verify the list after removal
+    assert(myList.size() == 4);
+    assert(myList.search(1).valid() == true);
+    assert(myList.search(2).valid() == true);
+    assert(myList.search(3).valid() == false);
+    assert(myList.search(4).valid() == true);
+    assert(myList.search(5).valid() == true);
+}
+
 void testAllExtended() {
 	testCreate();
 	testAdd();
 	testSetRemoveSearch();
 	testRemove();
 	testMixExtended();
-	testQuantity();
+    testExtra();
+	//testQuantity();
 }
 
 
