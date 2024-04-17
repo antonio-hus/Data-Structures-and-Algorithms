@@ -110,6 +110,18 @@ TElem Matrix::modify(int i, int j, TElem e) {
         // Remove Element
         if(e==NULL_TELEM){
 
+            // Linking the other pointers
+            if(currentNode == this->head) {
+                this->head = this->nodes[this->head].next;
+            }
+            else if(currentNode == this->tail){
+                this->tail = this->nodes[this->tail].prev;
+            }
+            else{
+                this->nodes[this->nodes[currentNode].prev].next = this->nodes[currentNode].next;
+                this->nodes[this->nodes[currentNode].next].prev = this->nodes[currentNode].prev;
+            }
+
             // Nulling pointers
             this->nodes[currentNode].prev = -1;
             this->nodes[currentNode].next = -1;

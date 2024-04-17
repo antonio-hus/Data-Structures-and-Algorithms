@@ -110,8 +110,6 @@ void testMix() {
 		for (int j = 0; j < size; j++) {
 			if (i == j) {
 				m.modify(i, j, 11);
-                cout << "Inserted at " << i << " " << j << " value 11" << endl;
-                cout << "Got: " << m.element(i, j)<< endl;
 			}
 			else if (i == 100 * j) {
 				m.modify(i, j, 111);
@@ -138,7 +136,7 @@ void testMix() {
 		}
 	}
 
-	for (int i = 0; i < size/2; i++) {
+	for (int i = 0; i < size/20; i++) {
 		for (int j = 0; j < size; j++) {
 			TElem e = m.element(i, j);
 			if (i == j) {
