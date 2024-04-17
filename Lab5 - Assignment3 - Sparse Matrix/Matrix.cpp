@@ -40,20 +40,23 @@ void Matrix::resize() {
     this->nodes = newElements;
     this->capacity = newCapacity;
 }
+// BC=WC=TC: Theta(capacity) - Copying all fields, plus initializing the upcoming ones, resulting in parsing 2*capacity elements
 
 // PUBLIC METHODS
 Matrix::Matrix(int nrLines, int nrCols):
 firstEmpty(-1), head(-1), tail(-1), size(0), capacity(0), linesCount(nrLines), colsCount(nrCols){}
-
+// BC=WC=TC: Theta(1) - Setting parameters is done in constant time
 
 int Matrix::nrLines() const {
 	return linesCount;
 }
+// BC=WC=TC: Theta(1) - Accessing parameters is done in constant time
 
 
 int Matrix::nrColumns() const {
 	return colsCount;
 }
+// BC=WC=TC: Theta(1) - Accessing parameters is done in constant time
 
 
 TElem Matrix::element(int i, int j) const {
@@ -77,6 +80,7 @@ TElem Matrix::element(int i, int j) const {
     // Element not found, return the NULL Value
     return NULL_TELEM;
 }
+// BC=WC=TC: Theta(matrixSize) - Parsing the list to find the element
 
 TElem Matrix::modify(int i, int j, TElem e) {
 
@@ -233,3 +237,4 @@ TElem Matrix::modify(int i, int j, TElem e) {
     // In case both old and new element was 0
     return NULL_TELEM;
 }
+// BC=WC=TC: Theta(matrixSize) - Parsing the list to find the most suitable location for the new element
