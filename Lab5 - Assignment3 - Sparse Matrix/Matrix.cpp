@@ -174,6 +174,9 @@ TElem Matrix::modify(int i, int j, TElem e) {
         // List already has elements
         else{
 
+            // Saving newFirstEmpty
+            int newFirstEmpty = this->nodes[firstEmpty].next;
+
             // Initializing our position
             this->nodes[firstEmpty].prev = -1;
             this->nodes[firstEmpty].next = -1;
@@ -194,7 +197,6 @@ TElem Matrix::modify(int i, int j, TElem e) {
                 this->nodes[firstEmpty].next = this->head;
                 this->nodes[this->head].prev = firstEmpty;
                 this->head = firstEmpty;
-
             }
 
             // Adding between nodes
@@ -206,8 +208,7 @@ TElem Matrix::modify(int i, int j, TElem e) {
             }
 
             // Getting the next free element
-            this->firstEmpty = this->nodes[firstEmpty].next;
-
+            this->firstEmpty = newFirstEmpty;
         }
 
         // Increasing the size

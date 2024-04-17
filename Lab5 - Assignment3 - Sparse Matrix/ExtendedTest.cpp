@@ -72,11 +72,8 @@ void testQuantity() {
 			if (i % 2 == 0 && j % 2 == 0)
 				assert(m.element(i, j) == i * j);
 			else
-				if (j % 3 == 0) {
-
-                    cout << "Got: "  << m.element(i,j) << " expected: " << i+j << " from " << i << " " << j << endl;
+				if (j % 3 == 0)
                     assert(m.element(i, j) == i + j);
-                }
 				else assert(m.element(i, j) == NULL_TELEM);
 }
 
@@ -113,6 +110,8 @@ void testMix() {
 		for (int j = 0; j < size; j++) {
 			if (i == j) {
 				m.modify(i, j, 11);
+                cout << "Inserted at " << i << " " << j << " value 11" << endl;
+                cout << "Got: " << m.element(i, j)<< endl;
 			}
 			else if (i == 100 * j) {
 				m.modify(i, j, 111);
