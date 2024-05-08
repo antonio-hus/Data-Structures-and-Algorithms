@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Lab6___Assignment4___SortedBag",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Lab6___Assignment4___SortedBag::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Lab6___Assignment4___SortedBag-Debug-738c21ff2bea3299c7b8.json",
+					"name" : "Lab6___Assignment4___SortedBag",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab6 - Assignment4 - SortedBag/cmake-build-debug",
+		"source" : "C:/Users/anton/OneDrive/Documents/GitHub/Data-Structures-and-Algorithms/Lab6 - Assignment4 - SortedBag"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
