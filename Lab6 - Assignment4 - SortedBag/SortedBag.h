@@ -13,9 +13,26 @@ class SortedBag {
 	friend class SortedBagIterator;
 
 private:
-	//TODO - Representation
+
+    /// SEPARATE CHAINING HASH TABLE STRUCTURE
+    // LINKED LIST COMPONENTS
+    typedef struct Node{
+        TElem key;
+        Node* next;
+    }Node;
+
+    // HASH TABLE COMPONENTS
+	int tableCapacity, tableSize;
+    Node** elements;
+
+    // HASHING FUNCTION
+    int hash(TComp element) const;
+
+    /// SORTED CONTAINER RELATION
+    Relation relation;
 
 public:
+
 	//constructor
 	SortedBag(Relation r);
 

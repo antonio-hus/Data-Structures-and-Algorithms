@@ -86,6 +86,7 @@ void testIterator(SortedBag& sb, Relation rel) {
 		assert(it.valid() == true);
 		it.first();
 		int count = 0;
+
 		while (it.valid()) {
 			count++;
 			it.next();
@@ -298,7 +299,7 @@ void testIterator(Relation rel) {
 void testAllExtended() {
 	testCreate();
 	testAdd(relation2);
-	testAdd(relation3);	
+	testAdd(relation3);
 	testRemove(relation2);
 	testRemove(relation3);
 	testIterator(relation2);
