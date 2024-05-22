@@ -294,7 +294,25 @@ void testIterator(Relation rel) {
 	assert(count == sb.size());
 }
 
+void testExtra(Relation rel){
+    cout << "Test Extra Operation" << endl;
+    SortedBag sb(rel);
 
+    // Initially the list has 0 elements
+    assert(sb.distinctCount() == 0);
+
+    // Adding distinct elements
+    sb.add(1);
+    sb.add(2);
+    sb.add(3);
+    assert(sb.distinctCount() == 3);
+
+    // Adding non-distinct elements
+    sb.add(1);
+    sb.add(2);
+    sb.add(3);
+    assert(sb.distinctCount() == 3);
+}
 
 void testAllExtended() {
 	testCreate();
@@ -306,4 +324,5 @@ void testAllExtended() {
 	testIterator(relation3);
 	testQuantity(relation2);
 	testQuantity(relation3);
+    testExtra(relation2);
 }

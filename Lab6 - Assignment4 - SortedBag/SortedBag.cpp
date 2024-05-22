@@ -178,7 +178,7 @@ bool SortedBag::isEmpty() const {
 SortedBagIterator SortedBag::iterator() const {
 	return SortedBagIterator(*this);
 }
-// BC=WC=TC: Theta(tableSize) - Initializing the iterator by merging the table's linked lists
+// BC=WC=TC: Theta(tableSize*tableCapacity) - Initializing the iterator by merging the table's linked lists
 
 SortedBag::~SortedBag() {
 
@@ -198,3 +198,36 @@ SortedBag::~SortedBag() {
     }
 }
 // BC=WC=TC: Theta(max(tableCapacity, tableSize)) - Deallocating the hash table's linked lists
+
+/// EXTRA OPERATION
+int SortedBag::distinctCount() const {
+
+    int count = 0;
+
+    // Going through the entire table
+    for(int i=0; i<tableCapacity; i++){
+
+        // Initially the lastValue is the null element
+        int lastValue = NULL_TCOMP;
+
+        // For each hash table slot we have a linked list
+        // Inside the linked list, components are kept in order
+        // Hence elements with the same value are in the same linked list, one after the other
+        Node* currentNode = this->elements[i];
+        while(currentNode!= nullptr){
+
+            // If the value changed, increase the distinct count
+            if(lastValue != currentNode->key){
+                count++;
+                lastValue = currentNode->key;
+            }
+
+            // Getting the next element
+            currentNode = currentNode->next;
+        }
+    }
+
+    // Returning the distinct numbers count
+    return count;
+}
+// BC=WC=TC: Theta(max(tableCapacity, tableSize)) - We have to go through all elements of the table

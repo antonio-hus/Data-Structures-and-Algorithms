@@ -1,0 +1,8 @@
+# ninja log v5
+3	123	7380858110464527	build.ninja	c3a6b0ce3ae23aab
+4	78	7380857907981666	CMakeFiles/Lab7___Assignment5___SortedSet.dir/SortedSet.cpp.obj	17c53354de098f8e
+2	428	7380857911504627	CMakeFiles/Lab7___Assignment5___SortedSet.dir/main.cpp.obj	e3374a156a249f2
+1	115	7380857908352707	CMakeFiles/Lab7___Assignment5___SortedSet.dir/SortedSetIterator.cpp.obj	1d8382e778aafe3f
+6	116	7380857908362702	CMakeFiles/Lab7___Assignment5___SortedSet.dir/ShortTest.cpp.obj	9b995890ca3b0c4f
+450	527	7380857912459863	Lab7___Assignment5___SortedSet.exe	4a86ed86602d0a92
+8	450	7380857911729879	CMakeFiles/Lab7___Assignment5___SortedSet.dir/ExtendedTest.cpp.obj	a10cd32dd50e69cc

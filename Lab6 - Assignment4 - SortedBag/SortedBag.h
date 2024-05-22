@@ -60,4 +60,8 @@ public:
 
 	//destructor
 	~SortedBag();
+
+    // EXTRA OPERATION
+    int distinctCount() const;
+
 };
