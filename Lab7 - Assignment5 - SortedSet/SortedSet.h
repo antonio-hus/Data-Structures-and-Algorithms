@@ -1,48 +1,65 @@
 #pragma once
-//DO NOT INCLUDE SETITERATOR
 
-//DO NOT CHANGE THIS PART
+/// TYPE DEFINITIONS
 typedef int TElem;
 typedef TElem TComp;
 typedef bool(*Relation)(TComp, TComp);
 #define NULL_TELEM -11111
+
+/// SORTED SET ITERATOR CLASS DECLARATION
 class SortedSetIterator;
 
-
+/// SORTED SET CLASS DECLARATION
 class SortedSet {
 	friend class SortedSetIterator;
 private:
-	//TODO - Representation
+
+    /// BST BASED REPRESENTATION
+    // Node Structure
+    typedef struct BSTNode{
+        TComp info;
+        BSTNode* leftChild;
+        BSTNode* rightChild;
+    }BSTNode;
+
+    // BST Root
+    BSTNode* root;
+
+    // Container Information
+    int setSize;
+
+    /// SORTED CONTAINER RELATION
+    Relation relation;
+
+    /// HELPER FUNCTIONS
+    void deallocateRec(BSTNode* node);
 
 public:
-	//constructor
-	SortedSet(Relation r);
 
-	//adds an element to the sorted set
-	//if the element was added, the operation returns true, otherwise (if the element was already in the set) 
-	//it returns false
+	// Constructor
+	explicit SortedSet(Relation r);
+
+	// Adds an element to the sorted set
+	// If the element was added, the operation returns true, otherwise (if the element was already in the set)
+	// It returns false
 	bool add(TComp e);
 
-	
-	//removes an element from the sorted set
-	//if the element was removed, it returns true, otherwise false
+	// Removes an element from the sorted set
+	// If the element was removed, it returns true, otherwise false
 	bool remove(TComp e);
 
-	//checks if an element is in the sorted set
+	// Checks if an element is in the sorted set
 	bool search(TElem elem) const;
 
-
-	//returns the number of elements from the sorted set
+	// Returns the number of elements from the sorted set
 	int size() const;
 
-	//checks if the sorted set is empty
+	// Checks if the sorted set is empty
 	bool isEmpty() const;
 
-	//returns an iterator for the sorted set
+	// Returns an iterator for the sorted set
 	SortedSetIterator iterator() const;
 
-	// destructor
+	// Destructor
 	~SortedSet();
-
-
 };

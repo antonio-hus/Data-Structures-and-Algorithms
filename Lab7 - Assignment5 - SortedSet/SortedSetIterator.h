@@ -9,12 +9,18 @@ private:
 	const SortedSet& multime;
 	SortedSetIterator(const SortedSet& m);
 
-	//TODO - Representation
+    /// BST IN-ORDER TRAVERSAL STRUCTURE
+    SortedSet::BSTNode* current;
+
+    SortedSet::BSTNode** stack;
+    int stackCapacity, stackTop;
+    void resizeStack();
 
 public:
 	void first();
 	void next();
 	TElem getCurrent();
 	bool valid() const;
+    ~SortedSetIterator();
 };
 
