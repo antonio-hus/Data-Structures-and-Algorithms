@@ -4,6 +4,7 @@
 typedef int TElem;
 typedef TElem TComp;
 typedef bool(*Relation)(TComp, TComp);
+typedef bool(*Condition)(TElem);
 #define NULL_TELEM -11111
 
 /// SORTED SET ITERATOR CLASS DECLARATION
@@ -33,6 +34,7 @@ private:
 
     /// HELPER FUNCTIONS
     void deallocateRec(BSTNode* node);
+    void filterRec(Condition cond, BSTNode* node);
 
 public:
 
@@ -62,4 +64,8 @@ public:
 
 	// Destructor
 	~SortedSet();
+
+    /// EXTRA OPERATION
+    void filter(Condition cond);
+
 };

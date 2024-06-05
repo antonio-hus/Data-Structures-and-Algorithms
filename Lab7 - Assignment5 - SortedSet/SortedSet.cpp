@@ -199,4 +199,21 @@ SortedSet::~SortedSet() {
 }
 // BC=WC=TC: Theta(setSize) - We need to deallocate all the nodes of the tree
 
+void SortedSet::filterRec(Condition cond, SortedSet::BSTNode *node) {
 
+    // Base Case
+    if(node == nullptr) return;
+    if(!cond(node->info))
+        this->remove(node->info);
+
+    // Recursive Step
+    filterRec(cond, node->leftChild);
+    filterRec(cond, node->rightChild);
+}
+// BC=WC=TC: Theta(setSize) - We need to check all nodes of the tree
+
+void SortedSet::filter(Condition cond) {
+    BSTNode* current = this->root;
+    filterRec(cond, current);
+}
+// BC=WC=TC: Theta(setSize) - We need to check all nodes of the tree

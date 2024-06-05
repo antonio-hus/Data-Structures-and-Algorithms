@@ -25,6 +25,18 @@ bool rLessEqual(TComp e1, TComp e2) {
 	}
 }
 
+bool cEven(TElem e){
+    if(e%2 == 0)
+        return true;
+    return false;
+}
+
+bool cOdd(TElem e){
+    if(e%2 == 1)
+        return true;
+    return false;
+}
+
 void testIteratorSteps(SortedSet& sset, Relation r) {
 	SortedSetIterator si = sset.iterator();
 	TElem elem = NULL_TELEM;
@@ -312,6 +324,28 @@ void testQuantity(Relation r) {
 	assert(s.size() == 0);
 }
 
+void testExtra(){
+    cout << "Test EXTRA" << endl;
+    SortedSet s(rLessEqual);
+
+    // Adding Values to the set
+    s.add(1);
+    s.add(2);
+    s.add(3);
+
+    // Filtering to keep only odd elements
+    s.filter(cOdd);
+    assert(s.size() == 2);
+    auto it = s.iterator();
+    it.first();
+    assert(it.getCurrent() == 1);
+    it.next();
+    assert(it.getCurrent() == 3);
+
+    // Filtering to keep only even elements
+    s.filter(cEven);
+    assert(s.size() == 0);
+}
 
 void testAllExtended() {
 
@@ -323,6 +357,7 @@ void testAllExtended() {
 	testIterator(rGreater);
 	testQuantity(rLessEqual);
 	testQuantity(rGreater);
+    testExtra();
 
 }
 
